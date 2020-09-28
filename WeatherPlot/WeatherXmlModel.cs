@@ -75,7 +75,7 @@ namespace WeatherPlot
 
         public double KelvinToFarenheit(double kelvin)
         {
-            return (kelvin - 273.15) * (9 / 5) + 32;
+            return ((kelvin - 273.15) * (9.0 / 5.0)) + 32.0;
         }
 
     }
