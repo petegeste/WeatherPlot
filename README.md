@@ -4,8 +4,6 @@ This application is meant as a demo for a UNH CS416 project.
 
 _Note: In order to build and run, you will need to obtain an API key from OpenWeatherMaps._
 
----
-
 # Obtaining an API key
 1) Go to [OpenWeatherMaps sign-in page](https://home.openweathermap.org/users/sign_in)
 2) Create an account
