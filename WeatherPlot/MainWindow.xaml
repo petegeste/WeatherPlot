@@ -1,0 +1,36 @@
+﻿<Window x:Class="WeatherPlot.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WeatherPlot"
+        xmlns:wpf="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+        mc:Ignorable="d"
+        Title="Plot The Temperature" Height="450" Width="607">
+    <Grid Margin="30">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+
+        <Label Grid.Row="0" Content="{Binding CityLocation, UpdateSourceTrigger=PropertyChanged}" FontWeight="Bold" FontSize="18"/>
+        <wpf:CartesianChart x:Name="WeatherChart" Grid.Row="1" Series="{Binding Temperatures, UpdateSourceTrigger=PropertyChanged}">
+            <wpf:CartesianChart.AxisX>
+                <wpf:Axis Title="Date" Labels="{Binding AxisLabels, UpdateSourceTrigger=PropertyChanged}">
+                    <wpf:Axis.Separator>
+                        <wpf:Separator Step="1"/>
+                    </wpf:Axis.Separator>
+                </wpf:Axis>
+            </wpf:CartesianChart.AxisX>
+        </wpf:CartesianChart>
+        <Grid Margin="0,10,0,0" Grid.Row="2" HorizontalAlignment="Stretch">
+            <WrapPanel>
+                <Label Content="Enter Location: "/>
+                <TextBox Width="150" Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+            </WrapPanel>
+            <Button HorizontalAlignment="Right" Content="Get Forecast" Command="{Binding SearchCommand, UpdateSourceTrigger=PropertyChanged}"/>
+        </Grid>
+
+    </Grid>
+</Window>
